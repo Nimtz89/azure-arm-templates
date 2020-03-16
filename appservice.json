@@ -171,6 +171,9 @@
             "properties": {
                 "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('servicePlanName'))]"
             },
+            "identity": {
+                "type": "[if(parameters('useManagedIdentity'), 'SystemAssigned', 'None')]"
+            },
             "dependsOn": [
                 "[resourceId('Microsoft.Web/Sites', parameters('name'))]"
             ]
@@ -277,7 +280,7 @@
             ]
         },
         {
-            "condition": "[and(not(empty(parameters('keyVaultName'))), parameters('useManagedIdentity'), parameters('useStagingSlot'))]",
+            "condition": "[and(parameters('useStagingSlot'), not(empty(parameters('keyVaultName'))), parameters('useManagedIdentity'))]",
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2018-05-01",
             "name": "slotaccesspolicy",

@@ -171,9 +171,6 @@
             "properties": {
                 "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('servicePlanName'))]"
             },
-            "identity": {
-                "type": "[if(and(parameters('useManagedIdentity'), parameters('useStagingSlot')), 'SystemAssigned', 'None')]"
-            },
             "dependsOn": [
                 "[resourceId('Microsoft.Web/Sites', parameters('name'))]"
             ]

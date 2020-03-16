@@ -172,7 +172,7 @@
                 "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('servicePlanName'))]"
             },
             "identity": {
-                "type": "[if(parameters('useManagedIdentity'), 'SystemAssigned', 'None')]"
+                "type": "[if(and(parameters('useManagedIdentity'), parameters('useStagingSlot')), 'SystemAssigned', 'None')]"
             },
             "dependsOn": [
                 "[resourceId('Microsoft.Web/Sites', parameters('name'))]"

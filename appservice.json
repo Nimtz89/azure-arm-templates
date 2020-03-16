@@ -105,7 +105,7 @@
         {
             "condition": "[not(equals(parameters('keyvaultName'), ''))]",
             "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2018-05-01",
+            "apiVersion": "2019-10-01",
             "name": "keyvault",
             "properties": {
                 "mode": "Incremental",
@@ -181,7 +181,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "condition": "[not(parameters('useStagingSlot'))]",
-            "apiVersion": "2018-05-01",
+            "apiVersion": "2019-10-01",
             "name": "appsettings-webapp",
             "properties": {
                 "mode": "Incremental",
@@ -211,7 +211,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "condition": "[parameters('useStagingSlot')]",
-            "apiVersion": "2018-05-01",
+            "apiVersion": "2019-10-01",
             "name": "appsettings-slot",
             "properties": {
                 "mode": "Incremental",
@@ -245,7 +245,7 @@
         {
             "condition": "[and(not(empty(parameters('keyVaultName'))), parameters('useManagedIdentity'))]",
             "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2018-05-01",
+            "apiVersion": "2019-10-01",
             "name": "accesspolicies",
             "properties": {
                 "mode": "Incremental",
@@ -282,7 +282,7 @@
         {
             "condition": "[and(parameters('useStagingSlot'), not(empty(parameters('keyVaultName'))), parameters('useManagedIdentity'))]",
             "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2018-05-01",
+            "apiVersion": "2019-10-01",
             "name": "slotaccesspolicy",
             "properties": {
                 "mode": "Incremental",
@@ -321,7 +321,7 @@
         {
             "condition": "[and(not(empty(parameters('keyVaultName'))), parameters('useManagedIdentity'))]",
             "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2018-05-01",
+            "apiVersion": "2019-10-01",
             "name": "additionalaccesspolicies",
             "properties": {
                 "mode": "Incremental",

@@ -16,6 +16,9 @@
         },
         "applicationInsightsLocation": {
             "value": ""
+        },
+        "searchProvider":{
+            "value": ""
         }
     }
 }
